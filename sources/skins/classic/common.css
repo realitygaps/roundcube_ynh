@@ -20,10 +20,14 @@ body.extwin
   margin: 10px;
 }
 
-select, input, textarea
+select, input, textarea, button
 {
-  font-size: 12px;
+  font-size: inherit;
   font-family: inherit;
+}
+
+html.mozilla select {
+  padding: 2px 1px;
 }
 
 th
@@ -100,7 +104,7 @@ input.button
   font-size: 12px;
   padding-left: 8px;
   padding-right: 8px;
-  background: url(images/buttons/bg.gif) repeat-x #f0f0f0;
+  background: url(images/buttons/bg.gif?v=30b2.196) repeat-x #f0f0f0;
   border: 1px solid #a4a4a4;
 }
 
@@ -152,6 +156,11 @@ img
   color: #999999;
 }
 
+.voice
+{
+  display: none;
+}
+
 /* fixes vertical alignment of checkboxes and labels */
 label input,
 label span
@@ -189,7 +198,7 @@ body > #logo
   right: 0px;
   height: 24px;
   left: 250px;
-  background: url(images/taskbar.png) top right no-repeat;
+  background: url(images/taskbar.png?v=3878.1902) top right no-repeat;
   padding: 10px 6px 5px 0px;
   text-align: right;
   white-space: nowrap;
@@ -202,7 +211,7 @@ body > #logo
   color: #666666;
   text-decoration: none;
   padding: 6px 12px 6px 26px;
-  background: url(images/taskicons.gif) no-repeat;
+  background: url(images/taskicons.gif?v=b8e0.1519) no-repeat;
 }
 
 #taskbar a:hover
@@ -253,7 +262,7 @@ body > #message div.notice,
 body > #messagebody .part-notice,
 #message-objects div.notice
 {
-  background: url(images/display/icons.png) 6px 3px no-repeat;
+  background: url(images/display/icons.png?v=e866.4201) 6px 3px no-repeat;
   background-color: #F7FDCB;
   border: 1px solid #C2D071;
 }
@@ -263,7 +272,7 @@ body > #message div.warning,
 #message-objects div.warning,
 #message-objects div.error
 {
-  background: url(images/display/icons.png) 6px -97px no-repeat;
+  background: url(images/display/icons.png?v=e866.4201) 6px -97px no-repeat;
   background-color: #EF9398;
   border: 1px solid #DC5757;
 }
@@ -271,17 +280,25 @@ body > #message div.warning,
 body > #message div.confirmation,
 #message-objects div.confirmation
 {
-  background: url(images/display/icons.png) 6px -47px no-repeat;
+  background: url(images/display/icons.png?v=e866.4201) 6px -47px no-repeat;
   background-color: #A6EF7B;
   border: 1px solid #76C83F;
 }
 
 body > #message div.loading,
+body > #message div.uploading,
 #message-objects div.loading
 {
-  background: url(images/display/loading.gif) 6px 3px no-repeat;
+  background: url(images/display/loading.gif?v=9bae.2710) 6px 3px no-repeat;
   background-color: #EBEBEB;
   border: 1px solid #CCCCCC;
+}
+
+body > #message div.voice
+{
+  position: absolute;
+  top: -1000px;
+  clip: rect(0 0 0 0);
 }
 
 body > #message a
@@ -316,7 +333,7 @@ body.extwin #closelink
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
 }
 
 .boxtitle .rightalign
@@ -365,7 +382,7 @@ body.iframe .boxtitle
   overflow: hidden;
   height: 22px;
   border-bottom: 1px solid #999;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
 }
 
 .boxfooter
@@ -377,7 +394,7 @@ body.iframe .boxtitle
   overflow: hidden;
   height: 22px;
   border-top: 1px solid #999;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
 }
 
 .boxfooter a.button,
@@ -390,7 +407,7 @@ body.iframe .boxtitle
   padding: 0px;
   margin: 0;
   overflow: hidden;
-  background: url(images/icons/groupactions.png) 0 0 no-repeat transparent;
+  background: url(images/icons/groupactions.png?v=ace6.1092) 0 0 no-repeat transparent;
   opacity: 0.99; /* this is needed to make buttons appear correctly in Chrome */
 }
 
@@ -427,7 +444,7 @@ body.iframe .boxtitle
   margin: 1px;
   margin-top: 2px;
   overflow: hidden;
-  background: url(images/pagenav.gif) 0 0 no-repeat transparent;
+  background: url(images/pagenav.gif?v=2e75.355) 0 0 no-repeat transparent;
   opacity: 0.99; /* this is needed to make buttons appear correctly in Chrome */
 }
 
@@ -469,7 +486,7 @@ body.iframe .boxtitle
   -moz-user-select: none;
   -khtml-user-select: none;
   position: absolute;
-  background: url(images/dimple.png) center no-repeat;
+  background: url(images/dimple.png?v=42a0.158) center no-repeat;
 }
 
 .splitter-h
@@ -546,6 +563,7 @@ body.iframe .boxtitle
 .popupmenu li a.active:visited
 {
   color: #333;
+  cursor: pointer;
 }
 
 .popupmenu li a.active:hover,
@@ -562,7 +580,7 @@ body.iframe .boxtitle
 
 .popupmenu.selectable li a.selected
 {
-  background: url(images/messageicons.png) 2px -372px no-repeat;
+  background: url(images/messageicons.png?v=16cb.2581) 2px -372px no-repeat;
 }
 
 .popupmenu.selectable li a
@@ -584,13 +602,13 @@ body.iframe .boxtitle
 
 .dropbutton:hover
 {
-/*  background: url(images/dbutton.png) 0 0 no-repeat transparent; */
+/*  background: url(images/dbutton.png?v=7bba.240) 0 0 no-repeat transparent; */
 }
 
 .dropbutton span
 {
   width: 9px;
-  background: url(images/dbutton.png) -53px 0 no-repeat transparent;
+  background: url(images/dbutton.png?v=7bba.240) -53px 0 no-repeat transparent;
 }
 
 .dropbutton span:hover
@@ -605,8 +623,13 @@ img.uploading
   height: 16px;
 }
 
+.popup label > input {
+  margin-left: 10px;
+}
+
 /***** common table settings ******/
 
+table.records-table thead tr th,
 table.records-table thead tr td
 {
   height: 20px;
@@ -614,9 +637,10 @@ table.records-table thead tr td
   vertical-align: middle;
   border-bottom: 1px solid #999999;
   color: #333333;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
   font-size: 11px;
   font-weight: bold;
+  text-align: left;
 }
 
 table.records-table tbody tr td
@@ -627,7 +651,8 @@ table.records-table tbody tr td
   white-space: nowrap;
   border-bottom: 1px solid #EBEBEB;
   overflow: hidden;
-  text-align: left;  
+  text-align: left;
+  outline: none;
 }
 
 table.records-table tr
@@ -659,39 +684,267 @@ ul.treelist li
 ul.treelist li div.treetoggle
 {
   position: absolute;
-  left: 8px !important;
-  left: -16px;
-  top: 1px;
+  left: 8px;
+  top: 2px;
   width: 14px;
   height: 16px;
   cursor: pointer;
 }
 
+ul.treelist ul li div.treetoggle
+{
+  left: 25px;
+}
+
+ul.treelist ul ul li div.treetoggle
+{
+  left: 42px;
+}
+
 ul.treelist li div.collapsed
 {
-  background: url(images/icons/collapsed.png) bottom right no-repeat;
+  background: url(images/icons/collapsed.png?v=45aa.97) bottom right no-repeat;
 }
 
 ul.treelist li div.expanded
 {
-  background: url(images/icons/expanded.png) bottom right no-repeat;
+  background: url(images/icons/expanded.png?v=f647.107) bottom right no-repeat;
+}
+
+ul.treelist,
+ul.treelist li ul
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+}
+
+ul.treelist li ul
+{
+  border-top: 1px solid #EBEBEB;
+}
+
+ul.treelist li
+{
+  display: block;
+  font-size: 11px;
+  border-bottom: 1px solid #EBEBEB;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+ul.treelist li a
+{
+  cursor: default;
+  display: block;
+  padding-left: 25px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: 16px;
+  line-height: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+ul.treelist li ul li a
+{
+  padding-left: 45px;
+}
+
+ul.treelist ul ul li a
+{
+  padding-left: 65px;
+}
+
+ul.treelist li ul li:last-child
+{
+  border-bottom: 0;
+}
+
+ul.treelist li.selected > a,
+ul.treelist li.selected > div a
+{
+  color: #FFF;
+  font-weight: bold;
+  background-color: #929292;
+}
+
+ul.treelist li.droptarget
+{
+  background-color: #FFFFA6;
+}
+
+/***** folders list *****/
+
+.folderlist li ul li:last-child
+{
+  border-bottom: 0 none;
+}
+
+.folderlist li.inbox a
+{
+  background-position: 5px -18px;
+}
+
+.folderlist li.drafts a
+{
+  background-position: 5px -36px;
+}
+
+.folderlist li.sent a
+{
+  background-position: 5px -53px;
+}
+
+.folderlist li.junk a
+{
+  background-position: 5px -72px;
+}
+
+.folderlist li.trash a
+{
+  background-position: 5px -180px;
+}
+
+.folderlist li.trash.empty a
+{
+  background-position: 5px -90px;
+}
+
+.folderlist li a
+{
+  cursor: default;
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-decoration: none;
+  height: 15px;
+  background: url(images/icons/folders.png?v=d9d2.5356) 5px 1px no-repeat;
+}
+
+.folderlist li.virtual > a
+{
+  color: #666;
+}
+
+.folderlist li.selected,
+.folderlist li.droptarget li.selected
+{
+  background-color: #929292;
+}
+
+.folderlist li.selected > a,
+.folderlist li.droptarget li.selected a
+{
+  color: #FFF;
+  font-weight: bold;
+}
+
+.folderlist li.droptarget
+{
+  background-color: #FFFFA6;
+}
+
+/* styles for nested folders */
+.folderlist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #EBEBEB;
+  background-color: #FFF;
+  font-weight: normal;
+}
+
+.folderlist li.mailbox ul li a {
+  padding-left: 40px;  /* 24 + 1 x 16 */
+  background-position: 20px 1px;  /* 4 + 1 x 16 */
+}
+.folderlist li.mailbox ul li div.treetoggle {
+  left: 23px !important;
+}
+
+.folderlist li.mailbox ul ul li.mailbox a {
+  padding-left: 56px;  /* 2x */
+  background-position: 36px 1px;
+}
+.folderlist li.mailbox ul ul li div.treetoggle {
+  left: 39px !important;
+}
+
+.folderlist li.mailbox ul ul ul li.mailbox a {
+  padding-left: 72px;  /* 3x */
+  background-position: 52px 1px;
+}
+.folderlist li.mailbox ul ul ul li div.treetoggle {
+  left: 55px !important;
+}
+
+.folderlist li.mailbox ul ul ul ul li.mailbox a {
+  padding-left: 88px;  /* 4x */
+  background-position: 68px 1px;
+}
+.folderlist li.mailbox ul ul ul ul li div.treetoggle {
+  left: 71px !important;
+}
+
+/* indent folders on levels > 4 */
+.folderlist li.mailbox ul ul ul ul ul li {
+  padding-left: 16px;
+}
+.folderlist li.mailbox ul ul ul ul ul li div.treetoggle {
+  left: 87px !important;
+}
+
+.folderlist li.mailbox ul li.drafts a
+{
+  background-position: 21px -36px;
+}
+
+.folderlist li.mailbox ul li.sent a
+{
+  background-position: 21px -53px;
+}
+
+.folderlist li.mailbox ul li.junk a
+{
+  background-position: 21px -72px;
+}
+
+.folderlist li.mailbox ul li.trash a
+{
+  background-position: 21px -180px;
+}
+
+.folderlist li.mailbox ul li.trash.empty a
+{
+  background-position: 21px -90px;
 }
 
 
 /***** mac-style quicksearch field *****/
+
+div.searchbox,
+#quicksearchbar
+{
+  position: relative;
+  width: 190px;
+  height: 20px;
+  text-align: right;
+  background: url(images/searchfield.gif?v=aaf8.313) top left no-repeat;
+}
 
 #quicksearchbar
 {
   position: absolute;
   top: 55px;
   right: 10px;
-  width: 190px;
-  height: 20px;
-  text-align: right;
-  background: url(images/searchfield.gif) top left no-repeat;
 }
 
-#searchreset
+#searchreset,
+div.searchbox a.searchreset
 {
   position: absolute;
   top: 3px;
@@ -699,11 +952,33 @@ ul.treelist li div.expanded
   text-decoration: none;
 }
 
-#searchmenulink
+#searchmenulink,
+div.searchbox a.searchmenu,
+div.searchbox a.searchicon
 {
  position: absolute;
  top: 3px;
  right: 168px;
+}
+
+div.searchbox a.searchreset
+{
+  display: block;
+  width: 14px;
+  height: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 50000px;
+  background: url(images/icons/reset.gif?v=a31d.164) top left no-repeat;
+}
+
+div.searchbox a.searchicon
+{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  background: url(images/icons/glass.png?v=6b06.406) top left no-repeat;
 }
 
 #quicksearchbar img
@@ -711,7 +986,8 @@ ul.treelist li div.expanded
   vertical-align: middle;
 }
 
-#quicksearchbox
+#quicksearchbox,
+div.searchbox > input
 {
   position: absolute;
   top: 2px;
@@ -741,6 +1017,25 @@ ul.treelist li div.expanded
   width: 97%;
 }
 
+.listsearchbox
+{
+  border-bottom: solid 1px #ddd;
+  padding: 2px 4px 1px;
+  display: none;
+  background-color: #f2f2f2;
+}
+
+.listsearchbox a.iconbutton.reset
+{
+  background: url(images/icons/reset.gif?v=a31d.164) no-repeat 0 0;
+  width: 13px;
+  height: 13px;
+  text-indent: 50000px;
+  position: absolute;
+  top: 3px;
+  left: 165px;
+  overflow: hidden;
+}
 
 /***** roundcube webmail pre-defined classes *****/
 
@@ -785,7 +1080,7 @@ ul.treelist li div.expanded
   content: " ";
   width: 14px;
   height: 14px;
-  background: url(images/messageactions.png) -2px -128px no-repeat;
+  background: url(images/messageactions.png?v=d93e.3223) -2px -128px no-repeat;
 }
 
 a.rcmContactAddress
@@ -871,11 +1166,6 @@ a.rcmContactAddress:hover
 	width: 400px;
 	color: #cf2734;
 	font-weight: bold;
-}
-
-#console
-{
-  opacity: 0.8;
 }
 
 .disabled,
@@ -987,7 +1277,7 @@ ul.toolbarmenu li.separator_above
 
 #folder-selector li a span
 {
-  background: url(images/icons/folders.png) no-repeat 6px 0;
+  background: url(images/icons/folders.png?v=d9d2.5356) no-repeat 6px 0;
   display: block;
   height: 15px;
   min-height: 14px;
@@ -1057,7 +1347,7 @@ span.tablink-selected
   height: 23px !important;
   height: 22px;
   overflow: hidden;
-  background: url(images/tabs-left.gif) top left no-repeat;
+  background: url(images/tabs-left.gif?v=0541.219) top left no-repeat;
 }
 
 span.tablink
@@ -1084,7 +1374,7 @@ span.tablink-selected a
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
-  background: url(images/tabs-right.gif) top right no-repeat;
+  background: url(images/tabs-right.gif?v=5414.733) top right no-repeat;
 }
 
 span.tablink-selected a
@@ -1120,9 +1410,78 @@ fieldset.tabbed
   cursor: default;
 }
 .quota_bg { background-color: white; }
-.quota_high { background: url(images/quota-colors.png) repeat-x 0 -28px #f90509; }
-.quota_mid { background: url(images/quota-colors.png) repeat-x 0 -14px #e3e909; }
-.quota_low { background: url(images/quota-colors.png) repeat-x 0 0px #05f905; }
+.quota_high { background: url(images/quota-colors.png?v=c1e9.287) repeat-x 0 -28px #f90509; }
+.quota_mid { background: url(images/quota-colors.png?v=c1e9.287) repeat-x 0 -14px #e3e909; }
+.quota_low { background: url(images/quota-colors.png?v=c1e9.287) repeat-x 0 0px #05f905; }
 .quota_text_high { color: white; }
 .quota_text_mid { color: #666; }
 .quota_text_low { color: #666; }
+
+table.quota-info {
+	border-spacing: 0;
+	border-collapse: collapse;
+	table-layout: fixed;
+	margin: 2px;
+}
+
+table.quota-info td,
+table.quota-info th {
+	border: 1px solid #999;
+	padding: 2px 3px;
+	text-align: center;
+	min-width: 80px;
+	color: #333;
+	font-size: 11px;
+}
+
+table.quota-info th {
+	font-weight: bold;
+	background-color: #ddd;
+}
+
+table.quota-info td.name {
+	text-align: left;
+}
+
+table.quota-info td.root {
+	font-style: italic;
+}
+
+/********** TinyMCE styles **********/
+.mce-btn-small button
+{
+  height: 22px;
+}
+
+.mce-btn-small i
+{
+  line-height: 16px !important;
+  vertical-align: text-top !important;
+}
+
+.mce-combobox button
+{
+    padding: 6px 8px !important;
+}
+
+.mce-tinymce
+{
+  border-radius: 0 !important;
+{
+
+.mce-panel.mce-toolbar-grp
+{
+  border: 0 !important;
+}
+
+#image-selector-form.droptarget {
+  background: url(images/filedrop.png?v=deab.605) center bottom no-repeat;
+}
+
+#image-selector-form.droptarget.hover
+{
+  background-color: #F0F0EE;
+  box-shadow: 0 0 5px 0 #999;
+  -moz-box-shadow: 0 0 5px 0 #999;
+  -o-box-shadow: 0 0 5px 0 #999;
+}

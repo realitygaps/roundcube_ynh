@@ -26,56 +26,51 @@
   border: none;
 }
 
+#acltable th,
 #acltable td
 {
   white-space: nowrap;
   text-align: center;
 }
 
-#acltable thead tr td
+#acltable thead tr th
 {
-  border-left: #BBD3DA dotted 1px;
   font-size: 11px;
   font-weight: bold;
-  width: auto;
 }
 
 #acltable tbody td
 {
-  border-bottom: #DDDDDD 1px solid;
   text-align: center;
   height: 16px;
   cursor: default;
 }
 
-#acltable thead td.user
+#acltable thead tr > .user
 {
   width: 30%;
+  border-left: none;
 }
 
-#acltable.advanced thead td.user {
-	width: 25%;
+#acltable.advanced thead tr > .user {
+  width: 25%;
 }
 
 #acltable tbody td.user
 {
   text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  border-left: none;
 }
 
 #acltable tbody td.partial
 {
-  background-image: url(images/partial.png);
+  background-image: url(images/partial.png?v=05d7.389);
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #acltable tbody td.enabled
 {
-  background-image: url(images/enabled.png);
+  background-image: url(images/enabled.png?v=9d9a.674);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -83,21 +78,21 @@
 #acltable tbody tr.selected td.partial
 {
   background-color: #019bc6;
-  background-image: url(images/partial.png), -moz-linear-gradient(top, #019bc6 0%, #017cb4 100%);
-  background-image: url(images/partial.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#019bc6), color-stop(100%,#017cb4));
-  background-image: url(images/partial.png), -o-linear-gradient(top, #019bc6 0%, #017cb4 100%);
-  background-image: url(images/partial.png), -ms-linear-gradient(top, #019bc6 0%, #017cb4 100%);
-  background-image: url(images/partial.png), linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/partial.png?v=05d7.389), -moz-linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/partial.png?v=05d7.389), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#019bc6), color-stop(100%,#017cb4));
+  background-image: url(images/partial.png?v=05d7.389), -o-linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/partial.png?v=05d7.389), -ms-linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/partial.png?v=05d7.389), linear-gradient(top, #019bc6 0%, #017cb4 100%);
 }
 
 #acltable tbody tr.selected td.enabled
 {
   background-color: #019bc6;
-  background-image: url(images/enabled.png), -moz-linear-gradient(top, #019bc6 0%, #017cb4 100%);
-  background-image: url(images/enabled.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#019bc6), color-stop(100%,#017cb4));
-  background-image: url(images/enabled.png), -o-linear-gradient(top, #019bc6 0%, #017cb4 100%);
-  background-image: url(images/enabled.png), -ms-linear-gradient(top, #019bc6 0%, #017cb4 100%);
-  background-image: url(images/enabled.png), linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/enabled.png?v=9d9a.674), -moz-linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/enabled.png?v=9d9a.674), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#019bc6), color-stop(100%,#017cb4));
+  background-image: url(images/enabled.png?v=9d9a.674), -o-linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/enabled.png?v=9d9a.674), -ms-linear-gradient(top, #019bc6 0%, #017cb4 100%);
+  background-image: url(images/enabled.png?v=9d9a.674), linear-gradient(top, #019bc6 0%, #017cb4 100%);
 }
 
 #aclform

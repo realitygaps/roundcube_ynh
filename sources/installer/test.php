@@ -1,6 +1,6 @@
 <?php
 
-if (!class_exists('rcube_install') || !is_object($RCI)) {
+if (!class_exists('rcmail_install', false) || !is_object($RCI)) {
     die("Not allowed! Please open installer/index.php instead.");
 }
 
@@ -154,7 +154,7 @@ else if ($db_working && $_POST['updatedb']) {
 
 // test database
 if ($db_working) {
-    $db_read = $DB->query("SELECT count(*) FROM {$RCI->config['db_prefix']}users");
+    $db_read = $DB->query("SELECT count(*) FROM " . $DB->quote_identifier($RCI->config['db_prefix'] . 'users'));
     if ($DB->is_error()) {
         $RCI->fail('DB Schema', "Database not initialized");
         echo '<p><input type="submit" name="initdb" value="Initialize database" /></p>';
@@ -178,17 +178,19 @@ if ($db_working) {
 if ($db_working) {
     // write test
     $insert_id = md5(uniqid());
-    $db_write = $DB->query("INSERT INTO {$RCI->config['db_prefix']}session (sess_id, created, ip, vars) VALUES (?, ".$DB->now().", '127.0.0.1', 'foo')", $insert_id);
+    $db_write = $DB->query("INSERT INTO " . $DB->quote_identifier($RCI->config['db_prefix'] . 'session')
+        . " (`sess_id`, `created`, `ip`, `vars`) VALUES (?, ".$DB->now().", '127.0.0.1', 'foo')", $insert_id);
 
     if ($db_write) {
       $RCI->pass('DB Write');
-      $DB->query("DELETE FROM {$RCI->config['db_prefix']}session WHERE sess_id=?", $insert_id);
+      $DB->query("DELETE FROM " . $DB->quote_identifier($RCI->config['db_prefix'] . 'session')
+        . " WHERE `sess_id` = ?", $insert_id);
     }
     else {
       $RCI->fail('DB Write', $RCI->get_error());
     }
     echo '<br />';
-    
+
     // check timezone settings
     $tz_db = 'SELECT ' . $DB->unixtimestamp($DB->now()) . ' AS tz_db';
     $tz_db = $DB->query($tz_db);
@@ -210,7 +212,6 @@ if ($db_working) {
 
 <h3>Test filetype detection</h3>
 
-<p>
 <?php
 
 if ($errors = $RCI->check_mime_detection()) {
@@ -225,12 +226,9 @@ if ($errors = $RCI->check_mime_detection()) {
 }
 else {
   $RCI->pass('Fileinfo/mime_content_type configuration');
+  echo "<br/>";
 }
 
-?>
-</p>
-<p>
-<?php
 
 if ($errors = $RCI->check_mime_extensions()) {
   $RCI->fail('Mimetype to file extension mapping');
@@ -239,6 +237,7 @@ if ($errors = $RCI->check_mime_extensions()) {
 }
 else {
   $RCI->pass('Mimetype to file extension mapping');
+  echo "<br/>";
 }
 
 ?>
@@ -428,6 +427,7 @@ if (isset($_POST['imaptest']) && !empty($_POST['_host']) && !empty($_POST['_user
   $imap->set_options(array(
     'auth_type' => $RCI->getprop('imap_auth_type'),
     'debug'     => $RCI->getprop('imap_debug'),
+    'socket_options' => $RCI->getprop('imap_conn_options'),
   ));
 
   if ($imap->connect($imap_host, $imap_user, $_POST['_pass'], $imap_port, $imap_ssl)) {
